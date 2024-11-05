@@ -1,0 +1,22 @@
+<?php
+$rates = $block->getExchangeRates();
+if (!empty($rates)): ?>
+    <table>
+        <tr>
+            <th>Currency Code</th>
+            <th>Buy</th>
+            <th>Transfer</th>
+            <th>Sell</th>
+        </tr>
+        <?php foreach ($rates as $rate): ?>
+            <tr>
+                <td><?= $rate['currencyCode'] ?></td>
+                <td><?= $rate['buy'] ?></td>
+                <td><?= $rate['transfer'] ?></td>
+                <td><?= $rate['sell'] ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+<?php else: ?>
+    <p>No exchange rate data available.</p>
+<?php endif; ?>
